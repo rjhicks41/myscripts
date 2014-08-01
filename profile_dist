@@ -1,0 +1,23 @@
+#!/bin/bash
+
+HN=`uname -n`
+
+
+klist -t >> /dev/null 2>&1
+KRBIZD=$?
+
+if [[ ${KRBIZD} -ne 0 ]]; then
+	echo "You don't have a ticket to ride."
+	exit 1
+fi
+
+if [[ ${HN} == warehouse ]]; then
+
+	rsync /Users/jhick/.bashrc glados:/home/j/h/jhick/.bashrc
+	rsync /Users/jhick/.bash_profile glados:/home/j/h/jhick/.bash_profile
+
+else
+	echo "$0 should only be run from warehouse.unix.fas.harvard.edu"
+	exit 1
+fi
+
