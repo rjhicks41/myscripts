@@ -1,6 +1,0 @@
-#! /bin/bash
-
-echo "-c NETWORK -a $1" | nc netopf.harvard.edu 43
-echo
-host $1 2>/dev/null
-echo
